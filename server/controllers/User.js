@@ -271,8 +271,11 @@ export const addWorkout = async (req, res, next) => {
 
     // Calculate calories burnt for each workout
     await parsedWorkouts.forEach(async (workout) => {
-      workout.caloriesBurned = parseFloat(calculateCaloriesBurnt(workout));
-      await Workout.create({ ...workout, user: userId });
+     for (const workout of parsedWorkouts) {
+  workout.caloriesBurned = parseFloat(calculateCaloriesBurnt(workout));
+  await Workout.create({ ...workout, user: userId });
+}
+
     });
 
     return res.status(201).json({
