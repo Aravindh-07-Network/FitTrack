@@ -1,8 +1,7 @@
-// src/api/index.js
 
 import axios from "axios";
 
-// 👇 Create axios instance that points to your local server
+
 const API = axios.create({
   baseURL: "https://fittrack-1-inu3.onrender.com/api", 
 });
